@@ -3,6 +3,9 @@ const networkInterfaces = require('os').networkInterfaces();
 const getPublicIP = require('external-ip')();
 const cheerio = require('cheerio')
 const axios = require('axios');
+XLSX = require('xlsx');
+
+
 
 async function scrapeKompasHeadlines() {
     const html = await axios.get('https://indeks.kompas.com/headline');
@@ -164,4 +167,12 @@ program
         scrapeKompasHeadlines();
     })
 
+.command('convert', 'Convert XLSX/XLS/CSV')
+    .argument("<fileone>", "file to convert")
+    .argument("<filetwo>", "file convert result")
+    .action(({ logger, args, options }) => {
+        let splitFileTwo = args.filetwo.split('.');
+        const workBook = XLSX.readFile(args.fileone);
+        XLSX.writeFile(workBook, args.filetwo, { bookType: splitFileTwo[1] });
+    })
 program.run()
