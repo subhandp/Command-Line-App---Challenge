@@ -1,0 +1,21 @@
+{
+    "name": "node-cli",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "subhandp",
+    "license": "ISC",
+    "dependencies": {
+        "@caporal/core": "^2.0.2",
+        "axios": "^0.19.2",
+        "caporal": "^1.4.0",
+        "cheerio": "^1.0.0-rc.3",
+        "external-ip": "^2.3.1",
+        "public-ip": "^4.0.2",
+        "scrappy": "^0.5.2"
+    }
+}
